@@ -1,3 +1,12 @@
+#fork part#
+- 新增 popover 模式，可顯示目前選中的項目（用標題判斷）
+- 把 define 值改成 property，不需要去動到設定檔才能改外觀
+
+- Show popover view with selected status
+- move define to property
+
+***
+
 #PopoverView#
 
 PopoverView is a simple resolution-independent UIView written entirely in CoreGraphics and QuartzCore for display of modal content on both iPhone and iPad.  It can display singular UIView contentViews, arrays of `UIViews`, display titles, or even allow selection from a list of strings.  It is implemented via a very simple static interface that allows you to show the popover with just a single line.  All animation, positioning, and memory allocations are handled by the component at runtime.  We are releasing under the MIT License.
