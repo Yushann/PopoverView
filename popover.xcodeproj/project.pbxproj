@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		432F318C411F1A2B19A874D4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 341547334966A73CD16676AA /* libPods.a */; };
 		B1175C5A15E3FBEE002FBFF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1175C5915E3FBEE002FBFF1 /* UIKit.framework */; };
 		B1175C5C15E3FBEE002FBFF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1175C5B15E3FBEE002FBFF1 /* Foundation.framework */; };
 		B1175C5E15E3FBEE002FBFF1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1175C5D15E3FBEE002FBFF1 /* CoreGraphics.framework */; };
@@ -42,7 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0867719D1689B04F00ED150F /* PopoverView_Configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopoverView_Configuration.h; sourceTree = "<group>"; };
+		341547334966A73CD16676AA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F53DB425B2F23F328E7DB5D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AD0FE5605E94D053F64E9917 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B1175C5515E3FBEE002FBFF1 /* popover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = popover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1175C5915E3FBEE002FBFF1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B1175C5B15E3FBEE002FBFF1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,6 +88,7 @@
 				B1175C5A15E3FBEE002FBFF1 /* UIKit.framework in Frameworks */,
 				B1175C5C15E3FBEE002FBFF1 /* Foundation.framework in Frameworks */,
 				B1175C5E15E3FBEE002FBFF1 /* CoreGraphics.framework in Frameworks */,
+				432F318C411F1A2B19A874D4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +114,7 @@
 				B1175C8015E3FBEE002FBFF1 /* popoverTests */,
 				B1175C5815E3FBEE002FBFF1 /* Frameworks */,
 				B1175C5615E3FBEE002FBFF1 /* Products */,
+				D790EBE5333681FBB8853FC3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +134,7 @@
 				B1175C5B15E3FBEE002FBFF1 /* Foundation.framework */,
 				B1175C5D15E3FBEE002FBFF1 /* CoreGraphics.framework */,
 				B1175C7A15E3FBEE002FBFF1 /* SenTestingKit.framework */,
+				341547334966A73CD16676AA /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -214,12 +220,20 @@
 			isa = PBXGroup;
 			children = (
 				B1175C9315E3FC13002FBFF1 /* PopoverView.h */,
-				0867719D1689B04F00ED150F /* PopoverView_Configuration.h */,
 				B1175C9415E3FC13002FBFF1 /* PopoverView.m */,
 				E7F6CF2A179D542E00C944E3 /* PopoverViewCompatibility.h */,
 			);
 			name = PopoverView;
 			path = ../PopoverView;
+			sourceTree = "<group>";
+		};
+		D790EBE5333681FBB8853FC3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD0FE5605E94D053F64E9917 /* Pods.debug.xcconfig */,
+				5F53DB425B2F23F328E7DB5D /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +243,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1175C8B15E3FBEE002FBFF1 /* Build configuration list for PBXNativeTarget "popover" */;
 			buildPhases = (
+				30FC9ADE002651838607DBBE /* Check Pods Manifest.lock */,
 				B1175C5115E3FBEE002FBFF1 /* Sources */,
 				B1175C5215E3FBEE002FBFF1 /* Frameworks */,
 				B1175C5315E3FBEE002FBFF1 /* Resources */,
+				6DD4254D1967419DB443640F /* Embed Pods Frameworks */,
+				1EFE36A38315F95650E9BCC1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,7 +276,7 @@
 			name = popoverTests;
 			productName = popoverTests;
 			productReference = B1175C7915E3FBEE002FBFF1 /* popoverTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -267,8 +284,14 @@
 		B1175C4C15E3FBEE002FBFF1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0720;
 				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Oliver Rickard";
+				TargetAttributes = {
+					B1175C5415E3FBEE002FBFF1 = {
+						DevelopmentTeam = CY97EFKYER;
+					};
+				};
 			};
 			buildConfigurationList = B1175C4F15E3FBEE002FBFF1 /* Build configuration list for PBXProject "popover" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -314,6 +337,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1EFE36A38315F95650E9BCC1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30FC9ADE002651838607DBBE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6DD4254D1967419DB443640F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B1175C7715E3FBEE002FBFF1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -403,6 +471,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -430,6 +499,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -448,15 +518,16 @@
 		};
 		B1175C8C15E3FBEE002FBFF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD0FE5605E94D053F64E9917 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Oliver Rickard (M2X353B497)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Oliver Rickard (M2X353B497)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "popover/Demo/popover-Prefix.pch";
 				INFOPLIST_FILE = "popover/Demo/popover-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "C183E71C-4BA9-4B64-B7E5-BA551FF1F744";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C183E71C-4BA9-4B64-B7E5-BA551FF1F744";
 				WRAPPER_EXTENSION = app;
 			};
@@ -464,12 +535,16 @@
 		};
 		B1175C8D15E3FBEE002FBFF1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F53DB425B2F23F328E7DB5D /* Pods.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "popover/Demo/popover-Prefix.pch";
 				INFOPLIST_FILE = "popover/Demo/popover-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

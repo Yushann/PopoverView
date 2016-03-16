@@ -134,6 +134,8 @@
 
 + (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withContentView:(UIView *)cView delegate:(id<PopoverViewDelegate>)delegate;
 
+//+ (PopoverView *)showPopoverAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withStringArray:(NSArray *)stringArray delegate:(id<PopoverViewDelegate>)delegate;
+
 #pragma mark - Instance Showing Methods
 
 //Adds/animates in the popover to the top of the view stack with the arrow pointing at the "point"
@@ -169,6 +171,9 @@
 //Lays out the PopoverView at a point once all of the views have already been setup elsewhere
 - (void)layoutAtPoint:(CGPoint)point inView:(UIView *)view;
 
+//Show popover view with selected status
+- (void)showAtPoint:(CGPoint)point inView:(UIView *)view withStringArray:(NSArray *)stringArray withSelectedTitle:(NSString *)title;
+
 #pragma mark - Other Interaction
 //This method animates the rotation of the PopoverView to a new point
 - (void)animateRotationToNewPoint:(CGPoint)point inView:(UIView *)view withDuration:(NSTimeInterval)duration;
@@ -198,5 +203,108 @@
 
 //Shows (and animates in) a success checkmark in the contentView
 - (void)showSuccess;
+
+
+#pragma mark - configure appearance
+/** Height/width of the actual arrow */
+@property (nonatomic) CGFloat kArrowHeight;
+/** padding within the box for the contentView */
+@property (nonatomic) CGFloat kBoxPadding;
+
+/** control point offset for rounding corners of the main popover box */
+@property (nonatomic) CGFloat kCPOffset;
+
+/** radius for the rounded corners of the main popover box */
+@property (nonatomic) CGFloat kBoxRadius;
+
+/** Curvature value for the arrow.  Set to 0.f to make it linear. */
+@property (nonatomic) CGFloat kArrowCurvature;
+
+/** Minimum distance from the side of the arrow to the beginning of curvature for the box */
+@property (nonatomic) CGFloat kArrowHorizontalPadding;
+
+/** Alpha value for the shadow behind the PopoverView */
+@property (nonatomic) CGFloat kShadowAlpha;
+
+/** Blur for the shadow behind the PopoverView */
+@property (nonatomic) CGFloat kShadowBlur;
+
+/** Box gradient bg alpha */
+@property (nonatomic) CGFloat kBoxAlpha;
+
+/** Padding along top of screen to allow for any nav/status bars */
+@property (nonatomic) CGFloat kTopMargin;
+
+/** margin along the left and right of the box */
+@property (nonatomic) CGFloat kHorizontalMargin;
+
+/** padding along top of icons/images */
+@property (nonatomic) CGFloat kImageTopPadding;
+
+/** padding along bottom of icons/images */
+@property (nonatomic) CGFloat kImageBottomPadding;
+
+
+// DIVIDERS BETWEEN VIEWS
+
+/** Bool that turns off/on the dividers */
+@property (nonatomic) BOOL kShowDividersBetweenViews;
+
+/** color for the divider fill */
+@property (nonatomic, strong) UIColor* kDividerColor;
+
+
+// BACKGROUND GRADIENT
+
+/** bottom color white in gradient bg */
+@property (nonatomic, strong) UIColor* kGradientBottomColor;
+
+/** top color white value in gradient bg */
+@property (nonatomic, strong) UIColor* kGradientTopColor;
+
+
+// TITLE GRADIENT
+
+/** bool that turns off/on title gradient */
+@property (nonatomic) BOOL kDrawTitleGradient;
+
+/** bottom color white value in title gradient bg */
+@property (nonatomic, strong) UIColor* kGradientTitleBottomColor;
+
+/** top color white value in title gradient bg */
+@property (nonatomic, strong) UIColor* kGradientTitleTopColor;
+
+
+// FONTS
+
+/** normal text font */
+@property (nonatomic, strong) UIFont* kTextFont;
+
+/** normal text color */
+@property (nonatomic, strong) UIColor* kTextColor;
+
+/** highlighted text color */
+@property (nonatomic, strong) UIColor* kTextHighlightColor;
+
+/** normal text alignment */
+#define kTextAlignment UITextAlignmentCenter
+
+/** title font */
+@property (nonatomic, strong) UIFont* kTitleFont;
+
+/** title text color */
+@property (nonatomic, strong) UIColor* kTitleColor;
+
+
+// BORDER
+
+/** bool that turns off/on the border */
+@property (nonatomic) BOOL kDrawBorder;
+
+/** border color */
+@property (nonatomic, strong) UIColor* kBorderColor;
+
+/** border width */
+@property (nonatomic) CGFloat kBorderWidth;
 
 @end

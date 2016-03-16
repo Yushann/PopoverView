@@ -16,6 +16,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic) int count;
+
 @end
 
 @implementation ViewController
@@ -36,6 +38,8 @@
     tapAnywhereLabel.text = @"Tap Anywhere";
     tapAnywhereLabel.textAlignment = UITextAlignmentCenter;
     [self.view addSubview:[tapAnywhereLabel autorelease]];
+    
+    self.count = 0;
 }
 
 #pragma mark - User Interaction Methods
@@ -63,12 +67,22 @@
 //                                  inView:self.view
 //                         withStringArray:kStringArray
 //                                delegate:self]; // Show the string array defined at top of this file
-    
+    /*
     pv = [PopoverView showPopoverAtPoint:point
                                   inView:self.view
                                withTitle:@"Was this helpful?"
                          withStringArray:kStringArray
                                 delegate:self]; // Show string array defined at top of this file with title.
+     */
+    
+    NSString *title = (self.count++%2) ? @"YES" : @"NO";
+    pv = [[PopoverView alloc] init];
+    //call customize setting before showAtPoint
+    pv.kTextColor = [UIColor redColor];
+    pv.kTextHighlightColor = [UIColor blueColor];
+    [pv showAtPoint:point inView:self.view withStringArray:kStringArray withSelectedTitle:title];
+    pv.delegate = self;
+    
 
 //    pv = [PopoverView showPopoverAtPoint:point
 //                                  inView:self.view
@@ -144,7 +158,7 @@
     NSString *string = [kStringArray objectAtIndex:index];
     
     // Show a success image, with the string from the array
-    [popoverView showImage:[UIImage imageNamed:@"success"] withMessage:string];
+    //[popoverView showImage:[UIImage imageNamed:@"success"] withMessage:string];
     
     // alternatively, you can use
     // [popoverView showSuccess];
@@ -152,7 +166,8 @@
     // [popoverView showError];
     
     // Dismiss the PopoverView after 0.5 seconds
-    [popoverView performSelector:@selector(dismiss) withObject:nil afterDelay:0.5f];
+//    [popoverView performSelector:@selector(dismiss) withObject:nil afterDelay:0.5f];
+    [popoverView dismiss];
 }
 
 - (void)popoverViewDidDismiss:(PopoverView *)popoverView

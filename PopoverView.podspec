@@ -17,8 +17,9 @@ Pod::Spec.new do |s|
     }
     s.author       = { "Raquel Galan" => "iprayforwaves@gmail.com" }
     s.author       = 'runway20'
-    s.source       = { :git => "https://github.com/cocoa-factory/PopoverView.git", :tag => '0.0.2'}
+    s.source       = { :git => "https://github.com/Yushann/PopoverView.git", :tag => '0.0.2'}
     s.platform     = :ios
     s.source_files = 'PopoverView/*.{h,m}'
+		s.dependency 'FontAwesomeIconFactory
 
 end
