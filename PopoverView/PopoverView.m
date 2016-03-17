@@ -8,7 +8,7 @@
 
 #import "PopoverView.h"
 #import <QuartzCore/QuartzCore.h>
-#import <FontAwesomeIconFactory.h>
+#import "NIKFontAwesomeIconFactory+iOS.h"
 
 #pragma mark - Implementation
 
