@@ -78,10 +78,19 @@
     NSString *title = (self.count++%2) ? @"YES" : @"NO";
     pv = [[PopoverView alloc] init];
     //call customize setting before showAtPoint
-    pv.kTextColor = [UIColor redColor];
-    pv.kTextHighlightColor = [UIColor blueColor];
+    
+    pv.kTextColor = [UIColor whiteColor];
+    pv.kTextHighlightColor = [UIColor whiteColor];
+    pv.kGradientBottomColor = [UIColor blueColor];
+    pv.kGradientTopColor = [UIColor blueColor];
+    pv.kArrowHeight = 0.0;
+    pv.kDividerColor = [UIColor whiteColor];
+    pv.kShowDividersBetweenViews = YES;
+    
     [pv showAtPoint:point inView:self.view withStringArray:kStringArray withSelectedTitle:title];
     pv.delegate = self;
+
+
     
 
 //    pv = [PopoverView showPopoverAtPoint:point

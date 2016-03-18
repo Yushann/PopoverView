@@ -286,6 +286,9 @@
 /** highlighted text color */
 @property (nonatomic, strong) UIColor* kTextHighlightColor;
 
+/** selected icon color */
+@property (nonatomic, strong) UIColor* kIconColor;
+
 /** normal text alignment */
 #define kTextAlignment UITextAlignmentCenter
 

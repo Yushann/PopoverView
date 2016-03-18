@@ -19,6 +19,8 @@
 @synthesize titleView;
 @synthesize delegate;
 
+@synthesize kShowDividersBetweenViews = _kShowDividersBetweenViews;
+
 #pragma mark - getter/setter
 -(CGFloat)kArrowHeight{
     return (_kArrowHeight) ? _kArrowHeight : 12.f;
@@ -76,6 +78,11 @@
     return (_kShowDividersBetweenViews) ? _kShowDividersBetweenViews : NO;
 }
 
+-(void)setKShowDividersBetweenViews:(BOOL)kShowDividersBetweenViews{
+    _kShowDividersBetweenViews = kShowDividersBetweenViews;
+    showDividerRects = _kShowDividersBetweenViews;
+}
+
 -(UIColor *)kDividerColor{
     return (_kDividerColor) ? _kDividerColor : [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:0.15f];
 }
@@ -110,6 +117,10 @@
 
 -(UIColor *)kTextHighlightColor{
     return (_kTextHighlightColor) ? _kTextHighlightColor : [UIColor colorWithRed:0.098 green:0.102 blue:0.106 alpha:1.000];
+}
+
+-(UIColor *)kIconColor{
+    return (_kIconColor) ? _kIconColor : self.kTextColor;
 }
 
 -(UIFont *)kTitleFont{
@@ -228,8 +239,6 @@
         
         self.titleView = nil;
         self.contentView = nil;
-        
-        showDividerRects = self.kShowDividersBetweenViews;
     }
     return self;
 }
@@ -626,26 +635,27 @@
     
     
     for (NSString *string in stringArray) {
-        CGSize textSize = [string sizeWithFont:font];
-        UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width + 20, textSize.height)];
+        CGSize textSize = [string sizeWithAttributes: @{NSFontAttributeName: font}];
+        UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width + 20, textSize.height + 10)];
         textButton.backgroundColor = [UIColor clearColor];
         textButton.titleLabel.font = font;
         textButton.titleLabel.textAlignment = kTextAlignment;
-        textButton.titleLabel.textColor = self.kTextColor;
         [textButton setTitle:string forState:UIControlStateNormal];
         textButton.layer.cornerRadius = 4.f;
         [textButton setTitleColor:self.kTextColor forState:UIControlStateNormal];
         [textButton setTitleColor:self.kTextHighlightColor forState:UIControlStateHighlighted];
+        [textButton setTitleColor:self.kTextHighlightColor forState:UIControlStateSelected];
         [textButton addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
         
         factory.colors = @[[UIColor clearColor]];
         [textButton setImage:[factory createImageForIcon:NIKFontAwesomeIconCircle] forState:UIControlStateNormal];
         
-        factory.colors = @[self.kTextColor];
+        factory.colors = @[self.kIconColor];
         [textButton setImage:[factory createImageForIcon:NIKFontAwesomeIconCircle] forState:UIControlStateSelected];
         
         if ([selectedTitle isEqualToString:string]) {
             textButton.selected = YES;
+            textButton.userInteractionEnabled = NO;
         }
         
         [labelArray addObject:[textButton AUTORELEASE]];
