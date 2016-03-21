@@ -115,10 +115,6 @@
     return (_kTextColor) ? _kTextColor : [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1];
 }
 
--(UIColor *)kIconColor{
-    return (_kIconColor) ? _kIconColor : [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1];
-}
-
 -(UIColor *)kTextHighlightColor{
     return (_kTextHighlightColor) ? _kTextHighlightColor : [UIColor colorWithRed:0.098 green:0.102 blue:0.106 alpha:1.000];
 }

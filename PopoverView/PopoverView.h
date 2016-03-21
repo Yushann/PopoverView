@@ -283,9 +283,6 @@
 /** normal text color */
 @property (nonatomic, strong) UIColor* kTextColor;
 
-/** normal icon color */
-@property (nonatomic, strong) UIColor* kIconColor;
-
 /** highlighted text color */
 @property (nonatomic, strong) UIColor* kTextHighlightColor;
 
