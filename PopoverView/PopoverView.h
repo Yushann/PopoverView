@@ -310,4 +310,7 @@
 /** border width */
 @property (nonatomic) CGFloat kBorderWidth;
 
+/** stop drawRect */
+@property (nonatomic) BOOL kDrawRect;
+
 @end

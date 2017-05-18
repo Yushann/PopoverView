@@ -239,6 +239,7 @@
         
         self.titleView = nil;
         self.contentView = nil;
+        self.kDrawRect = YES;
     }
     return self;
 }
@@ -984,6 +985,7 @@
     }
     else
     {
+        self.backgroundColor = [UIColor clearColor];
         [UIView animateWithDuration:0.3f animations:^{
             self.alpha = 0.1f;
             self.transform = CGAffineTransformMakeScale(0.1f, 0.1f);
@@ -1015,6 +1017,9 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
+    if (!self.kDrawRect) {
+        return;
+    }
     
     // Build the popover path
     CGRect frame = boxFrame;
